@@ -5,8 +5,10 @@ from weapon import Weapon
 class Battlefield:
     
     def __init__(self):
-        self.robot = Robot('Barthalemew', Weapon('Rusty Saw', 20))
-        self.dinosaur = Dinosaur('Big Bertha', 30)
+        #self.robot = Robot('Barthalemew', Weapon('Rusty Saw', 20))
+        #self.dinosaur = Dinosaur('Big Bertha', 30)
+        self.robot = ''
+        self.dinosaur = ''
         self.winner = ''
 
        
@@ -18,7 +20,14 @@ class Battlefield:
         self.display_winner()
 
     def display_welcome(self):
+        print('Before we begin the game, you must pick the opponents who will face off,\n between the legend of the Dinosoar and the Robot!')
+        robot_name = input("Please input the name of the Robot: ")
+        robot_weapon = input("Please enter the name of the weapon this robot will use: ")
+        dinosaur_name = input("Please input the name of the dinosaur: ")
+        self.robot = Robot(robot_name, Weapon(robot_weapon, 20))
+        self.dinosaur = Dinosaur(dinosaur_name, 20)
         print('\nWelcome to an epic battle for the ages! \nOnly one side can win!\n')
+        
 
     def battle_phase(self):
         self.winner = ''
