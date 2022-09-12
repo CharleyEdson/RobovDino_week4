@@ -22,7 +22,7 @@ class Battlefield:
     def display_welcome(self):
         print('Before we begin the game, you must pick the opponents who will face off,\n between the legend of the Dinosoar and the Robot!')
         robot_name = input("Please input the name of the Robot: ")
-        robot_weapon = input("Please enter the name of the weapon this robot will use: ")
+        robot_weapon = input("Please choose the weapon of choice, between: 'The Slicer', 'Robo Mace', and 'Robo Sword'")
         dinosaur_name = input("Please input the name of the dinosaur: ")
         self.robot = Robot(robot_name, Weapon(robot_weapon, 20))
         self.dinosaur = Dinosaur(dinosaur_name, 20)
