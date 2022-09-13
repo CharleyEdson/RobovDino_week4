@@ -1,6 +1,7 @@
 from dinosaur import Dinosaur
 from robot import Robot
 from weapon import Weapon
+from herd import Herd
 
 class Battlefield:
     
@@ -23,8 +24,12 @@ class Battlefield:
         print('Before we begin the game, you must pick the opponents who will face off,\n between the legend of the Dinosoar and the Robot!')
         robot_name = input("Please input the name of the Robot: ")
         robot_weapon = input("Please choose the weapon of choice, between: 'The Slicer', 'Robo Mace', and 'Robo Sword'")
-        dinosaur_name = input("Please input the name of the dinosaur: ")
         self.robot = Robot(robot_name, Weapon(robot_weapon, 20))
+        dinosaur_name = input("Please input the name of the dinosaur: ")
+        herd = input("Please input the type of dinosaur: 'Fleet, herd, or main'")
+        if herd == 'Fleet':
+            self.dinosaur = Herd(Dinosaur(dinosaur_name, 20))
+
         self.dinosaur = Dinosaur(dinosaur_name, 20)
         print('\nWelcome to an epic battle for the ages! \nOnly one side can win!\n')
         
