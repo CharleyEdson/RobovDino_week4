@@ -2,6 +2,7 @@ from dinosaur import Dinosaur
 from robot import Robot
 from weapon import Weapon
 from herd import Herd
+from fleet import Fleet
 
 class Battlefield:
     
@@ -26,16 +27,21 @@ class Battlefield:
         robot_weapon = input("Please choose the weapon of choice, between: 'The Slicer', 'Robo Mace', and 'Robo Sword'")
         self.robot = Robot(robot_name, Weapon(robot_weapon, 20))
         dinosaur_name = input("Please input the name of the dinosaur: ")
-        herd = input("Please input the type of dinosaur: 'Fleet, herd, or main'")
-        if herd == 'Fleet':
+        class_type = input("Please input the type of dinosaur: 'Fleet, Herd, or Main'")
+        if class_type == 'Herd':
             self.dinosaur = Herd(Dinosaur(dinosaur_name, 20))
+        elif class_type == 'Fleet':
+            self.dinosaur = Fleet(Dinosaur(dinosaur_name, 20))
+        elif class_type == 'Main':
+            self.dinosaur = Dinosaur(dinosaur_name, 20)
 
-        self.dinosaur = Dinosaur(dinosaur_name, 20)
+        
         print('\nWelcome to an epic battle for the ages! \nOnly one side can win!\n')
         
 
     def battle_phase(self):
         self.winner = ''
+        self.dinosaur.update_stats()
         while self.robot.health >= 0 and self.dinosaur.health >= 0:
             self.robot.attack(self.dinosaur)
             self.dinosaur.attack(self.robot)

@@ -9,6 +9,14 @@ class Herd:
 
 
     def update_stats(self):
-        self.health = self.dinosaur.health * 1.1
-        self.attack_power = self.dinosaur.attack_power * .9
+        self.health = self.health * 1.1
+        self.attack_power = self.attack_power * .9
         
+    def attack(self, robot):
+        
+        print(f'{self.name} attacked {robot.name} for {str(self.attack_power)} damage!')
+        robot.health -= self.attack_power
+        if robot.health > 0:
+            print(f'{robot.name} has {str(robot.health)} health reamining!')
+        else:
+            print(f'{robot.name} has 0 health reamining!')
