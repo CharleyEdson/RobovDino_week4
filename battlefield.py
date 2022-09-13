@@ -30,8 +30,10 @@ class Battlefield:
         class_type = input("Please input the type of dinosaur: 'Fleet, Herd, or Main'")
         if class_type == 'Herd':
             self.dinosaur = Herd(Dinosaur(dinosaur_name, 20))
+            self.dinosaur.update_stats()
         elif class_type == 'Fleet':
             self.dinosaur = Fleet(Dinosaur(dinosaur_name, 20))
+            self.dinosaur.update_stats()
         elif class_type == 'Main':
             self.dinosaur = Dinosaur(dinosaur_name, 20)
 
@@ -40,8 +42,8 @@ class Battlefield:
         
 
     def battle_phase(self):
-        self.winner = ''
-        self.dinosaur.update_stats()
+                  
+        
         while self.robot.health >= 0 and self.dinosaur.health >= 0:
             self.robot.attack(self.dinosaur)
             self.dinosaur.attack(self.robot)

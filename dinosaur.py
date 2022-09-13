@@ -7,6 +7,7 @@ class Dinosaur:
         self.name = name
         self.attack_power = attack_power
         self.health = 100
+        self.type = 'Main'
         
 
     def attack(self, robot):

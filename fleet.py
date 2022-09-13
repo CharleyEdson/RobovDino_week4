@@ -9,6 +9,7 @@ class Fleet:
         self.name = dinosaur.name
         self.attack_power = dinosaur.attack_power
         self.health = dinosaur.health
+        self.type = 'Fleet'
 
 
 
